@@ -21,7 +21,7 @@ class Usuarios extends CI_Controller {
 	public function validar()
 	{
 		$login=$_POST["login"];
-		$password = ($_POST["password"]);
+		$password = md5($_POST["password"]);
 
 		$consulta=$this->usuario_model->validar($login,$password);
 
