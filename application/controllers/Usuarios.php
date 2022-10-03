@@ -69,4 +69,32 @@ class Usuarios extends CI_Controller {
 		redirect('Usuarios/index/1','refresh');
 	}
 
+
+
+	public function vender()
+    {
+        //-----BDD tabla-------formulario.php
+        $data['infoclientes']=$this->usuario_model->listaClientes();
+        $data['infousuarios']=$this->usuario_model->listaUsers();
+		$data['infoproductos']=$this->usuario_model->listaProductos();
+
+        $this->load->view('inc/headersbadmin'); // archivos de cabecera
+        $this->load->view('inc/sidebarsbadmin');       
+        $this->load->view('venderform',$data);        // contenido
+        $this->load->view('inc/creditos');      
+        $this->load->view('inc/footersbadmin'); // archivos de pie
+    }
+    public function venderbd()
+    {
+        //-----BDD tabla-------formulario.php
+        $data['nombre']=$_POST['nombre'];
+        $data['apellidoPaterno']=$_POST['apellidoPaterno'];
+        $data['telefono']=$_POST['telefono'];
+        $idCliente=$_POST['idCliente'];
+        $idEmpleado=$_POST['idEmpleado'];
+
+        $this->usuario_model->venderUser($idCliente,$idUsuario,$data);
+        redirect('usuarios/index1','refresh');
+    }
+
 }

@@ -26,7 +26,6 @@
                             <br><input type="text" name="tipo" class="form-control" placeholder="Ingrese su tipo de acceso" value="<?php echo $row->tipo; ?>"><br>
                             <br><input type="text" name="login" class="form-control" placeholder="Ingrese su login" value="<?php echo $row->login; ?>"><br>
                             <br><input type="password" name="password" class="form-control" placeholder="Ingrese su password" value="<?php echo ($row->password); ?>"><br>
-                            <br><input type="file" name="userfile" class="form-control" placeholder="agreguar imagen" ><br>
                             <br><button type="submit" class=" btn btn-success">Aplicar cambios</button>
                             
                             <?php 

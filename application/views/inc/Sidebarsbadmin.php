@@ -34,6 +34,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         <li class="sidebar-item">
                             
+                            <?php echo form_open_multipart('Cliente/index');?>
+                <button type="submit" class="btn btn-success">Ver lista de clientes</button>
+                <?php echo form_close();?><br>
+                            </a>
+                        </li> 
+
+                        <li class="sidebar-item">
+                            
                             <?php echo form_open_multipart('Ventas/buscarProducto');?>
                 <button type="submit" class="btn btn-success">Realizar venta</button>
                 <?php echo form_close();?><br>

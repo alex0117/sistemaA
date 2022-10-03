@@ -117,25 +117,25 @@ class Empleados extends CI_Controller {
 		$data['password']=md5($_POST['password']);
 		
 	
-		$nombrearchivo=$idEmpleado.".jpg";
-		$config['upload_path']='./uploads2';
-		$config['file_name']=$nombrearchivo;
-		$direccion="./uploads2/".$nombrearchivo;
-		if (file_exists($direccion)) {
-			unlink($direccion);
-		}
+		//$nombrearchivo=$idEmpleado.".jpg";
+		//$config['upload_path']='./uploads2';
+		//$config['file_name']=$nombrearchivo;
+		//$direccion="./uploads2/".$nombrearchivo;
+		//if (file_exists($direccion)) {
+		//	unlink($direccion);
+		//}
 		
 
-		$config['allowed_types']='jpg';
-		$this->load->library('upload',$config);
+		//$config['allowed_types']='jpg';
+		//$this->load->library('upload',$config);
 
-		if (!$this->upload->do_upload()) {
-			$data['error']=$this->upload->display_errors();
-		}
-		else {
-			$data['imagen']=$nombrearchivo;
-			$this->upload->data();
-		}
+		//if (!$this->upload->do_upload()) {
+		//	$data['error']=$this->upload->display_errors();
+		//}
+		//else {
+		//	$data['imagen']=$nombrearchivo;
+		//	$this->upload->data();
+		//}
 
 
 		$this->empleado_model->modificarempleado($idEmpleado,$data);

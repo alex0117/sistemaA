@@ -86,9 +86,9 @@ use LDAP\Result;
 
             <div class="col-md-12">
               <div class="card-header">
-                  <div class="col-md-6">
-                              <h2>Cliente</h2>
-                              <select class="form-control" name="" id="hola">
+              <div class="col-md-4">
+              <h2>Cliente</h2>
+                              <select class="form-control" name="buscador" id="buscador">
 
                               <?php
                               
@@ -100,21 +100,21 @@ use LDAP\Result;
                               ?>
                               <?php foreach ($ejecutar as $opciones):?>
                                 
-                                <option value=<?php echo $opciones['nombre'] ?>><?php echo $opciones['nombre'] ?></option>
+                                <option value=<?php echo $opciones['ci'] ?>><?php echo $opciones['ci'] ?></option>
 
                               <?php endforeach ?>  
-
+                              
                                 
                               </select>
-                  </div>
+                                     <?php echo $opciones['nombre'] ?>  
 
 <br>
 <h2>Productos</h2>
-                  <div class="col-md-6">
+                  <div class="col-md-4">
 
               <form action="" method="GET">
                 <input type="text" id="query" name="query" class="form-control" maxlength="12"><br>
-                <input type="submit" id="buscar" value="Buscar">
+                <input type="submit" id="buscar"  class="btn btn-success" value="Buscar">
               </form>
               <br><br>
               <p>Producto : </p>
@@ -142,19 +142,41 @@ use LDAP\Result;
                         <thead >
                             <tr>
                             
-                                <th scope="col">ci</th>
-                                <th scope="col">nombre</th>
-                                <th scope="col">apellido paterno</th>
-                                <th scope="col">apellido materno</th>
+                                <th scope="col">Codigo</th>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Total</th>
 
                             </tr>
                         </thead>
                         <tbody>
+                        <?php
+                        if ($result) {
+                                $indice=1;
+                                foreach ($result->result() as $row) 
+                                {
+                                    ?> 
+                                    <tr>
+                                    <td ><?php echo $row->codigo;?></td>
+                                            <td><?php echo $row->nombre;?></td>
+                                            <td><?php echo $row->saldo;?></td>
+                                            <td><?php echo $row->precio;?></td>
+                                    </tr>
+                                    <?php
+                                }
+                              }
+                                ?>
 
                         </tbody>
+
+                        
                     </table>
                 </div>
-              
+              <div class="col-12">
+                          <div class="col-6">
+                              <input type="submit" class="btn btn-success" value="guardar venta">
+                          </div>
+                        </div>
             </div>
         </div>
         <!-- ============================================================== -->

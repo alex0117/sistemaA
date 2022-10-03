@@ -23,8 +23,7 @@
                                     <br><input type="text" name="descripcion" class="form-control p-0 border-0"        placeholder="Ingrese la descripcion"value="<?php echo $row->descripcion; ?>"><br>
                                     <br><input type="text" name="saldo" class="form-control p-0 border-0"         placeholder="Ingrese el saldo"      value="<?php echo $row->saldo; ?>"><br>
                                     <br><input type="file" name="userfile"><br>
-                                    <br><button type="submit" class=" btn btn-success">Aplicar cambios</button>
-                                <?php 
+                                     <?php 
                                 echo form_close();
                                 
                             }

@@ -13,4 +13,14 @@ class Venta_model extends CI_model {
 			return FALSE;
 		}
 	}
+	public function buscarC($query2)
+	{
+		$this->db->like('nombre',$query2);
+		$query2=$this->db->get('cliente');
+		if ($query2->num_rows()>0) {
+			return $query2;
+		}else {
+			return FALSE;
+		}
+	}
 }

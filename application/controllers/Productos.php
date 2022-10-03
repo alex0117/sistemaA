@@ -133,26 +133,6 @@ class Productos extends CI_Controller {
 		$data['descripcion']=$_POST['descripcion'];
 		$data['saldo']=$_POST['saldo'];
 
-		$nombrearchivo=$idProducto.".jpg";
-		$config['upload_path']='./uploads';
-		$config['file_name']=$nombrearchivo;
-		$direccion="./uploads/".$nombrearchivo;
-		if (file_exists($direccion)) {
-			unlink($direccion);
-		}
-		
-
-		$config['allowed_types']='jpg';
-		$this->load->library('upload',$config);
-
-		if (!$this->upload->do_upload()) {
-			$data['error']=$this->upload->display_errors();
-		}
-		else {
-			$data['imagen']=$nombrearchivo;
-			$this->upload->data();
-		}
-
 		$this->producto_model->modificarproducto($idProducto,$data);
 		if($this->session->userdata('tipo')=='admin')
 		{
